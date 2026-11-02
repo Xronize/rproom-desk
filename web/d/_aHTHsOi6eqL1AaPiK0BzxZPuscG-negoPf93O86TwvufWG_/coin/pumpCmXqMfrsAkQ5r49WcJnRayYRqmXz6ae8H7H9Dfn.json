@@ -1,1 +1,1 @@
-{"coin":{"mint":"pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn","name":null,"symbol":null,"pool":null,"migrated_at":1793637584.1995792,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn","name":null,"symbol":null,"pool":null,"migrated_at":1793637584.1995792,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
