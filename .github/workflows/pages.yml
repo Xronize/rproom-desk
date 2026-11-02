@@ -68,8 +68,15 @@ jobs:
           const points = normalizePoints({ points: [{ t: 1, v: 200 }, 201] });
           if (points.join(",") !== "200,201") throw new Error(String(points));
           EOF
-          test ! -e web/d
           test ! -e d
+          test ! -e web/d/index.html
+          found=0
+          for f in web/d/*/state.json web/d/*/chart.json web/d/*/activity.json; do
+            test -f "$f"
+            python3 -c 'import json,sys; json.load(open(sys.argv[1]))' "$f"
+            found=$((found + 1))
+          done
+          test "$found" -eq 3
           if grep -RInE --exclude-dir=.git '^(TYPESAFE_API_KEY|TG_TOKEN|VAPID_PRIVATE_KEY|APP_TOKEN|DATA_PATH)=' .; then
             echo "refusing secret assignment" >&2
             exit 1
