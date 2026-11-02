@@ -1,1 +1,1 @@
-{"coin":{"mint":"TTWofwAge91oFhZs7kpQdyrVRkmevgM88xijGvQFbKo","name":null,"symbol":null,"pool":null,"migrated_at":1793641549.7929637,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"TTWofwAge91oFhZs7kpQdyrVRkmevgM88xijGvQFbKo","name":null,"symbol":null,"pool":null,"migrated_at":1793641549.7929637,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
