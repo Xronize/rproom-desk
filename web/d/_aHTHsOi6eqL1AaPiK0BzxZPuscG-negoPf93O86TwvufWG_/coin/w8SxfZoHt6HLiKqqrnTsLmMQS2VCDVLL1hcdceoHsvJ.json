@@ -1,1 +1,1 @@
-{"coin":{"mint":"w8SxfZoHt6HLiKqqrnTsLmMQS2VCDVLL1hcdceoHsvJ","name":null,"symbol":null,"pool":null,"migrated_at":1793656281.0996544,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"w8SxfZoHt6HLiKqqrnTsLmMQS2VCDVLL1hcdceoHsvJ","name":null,"symbol":null,"pool":null,"migrated_at":1793656281.0996544,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
