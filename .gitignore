@@ -1,0 +1,27 @@
+# Secrets — never commit runtime credentials or DATA_PATH
+secrets/
+.env
+.env.*
+*.pem
+*.key
+
+# Settings files that can carry tokens
+settings.json
+settings.yml
+settings.yaml
+settings.toml
+settings.local.*
+
+# Local Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Runtime data and logs. The publisher writes /d/{DATA_PATH}/ on Pages only.
+*.db
+logs/
+d/
+web/d/
+
+# OS
+.DS_Store

@@ -1,0 +1,107 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Validate static shell
+        run: |
+          set -eu
+          for f in \
+            web/index.html \
+            web/app.css \
+            web/app.js \
+            web/chart.js \
+            web/links.js \
+            web/sw.js \
+            web/manifest.json \
+            web/icons/apple-touch-icon.png \
+            web/icons/icon-192.png \
+            web/icons/icon-512.png \
+            web/icons/favicon-32.png
+          do
+            test -f "$f"
+          done
+          node --check web/app.js
+          node --check web/chart.js
+          node --check web/links.js
+          node --check web/sw.js
+          node --input-type=module <<'EOF'
+          import { SIGNUP_URL, profileUrl, fomoUrl } from "./web/links.js";
+          import { POLL_MS, dataFileUrl, dataPathFromHash, formatMoney, siteBaseHref } from "./web/app.js";
+          import { normalizePoints } from "./web/chart.js";
+
+          if (SIGNUP_URL !== "https://fomo.family/r/savipww") throw new Error("signup");
+          if (profileUrl() !== "https://fomo.family/profile/RPRoom?source=share_link&r=savipww") {
+            throw new Error("profile " + profileUrl());
+          }
+          const forced = fomoUrl("/join", { r: "other", source: "share_link" });
+          if (!forced.includes("r=savipww") || forced.includes("r=other")) throw new Error(forced);
+          if (POLL_MS !== 15000) throw new Error("poll");
+          if (formatMoney(200) !== "$200.00" || formatMoney(-2) !== "-$2.00") throw new Error(formatMoney(200));
+          if (dataPathFromHash("#d=example&t=ignored") !== "example") throw new Error("hash");
+          const base = siteBaseHref("https://xronize.github.io/rproom-desk/#d=example&t=ignored");
+          if (base !== "https://xronize.github.io/rproom-desk/") throw new Error(base);
+          const stateUrl = dataFileUrl(base, "example", "state.json");
+          if (stateUrl !== "https://xronize.github.io/rproom-desk/d/example/state.json") throw new Error(stateUrl);
+          const coinUrl = dataFileUrl(base, "example", "coin/mint.json");
+          if (coinUrl !== "https://xronize.github.io/rproom-desk/d/example/coin/mint.json") throw new Error(coinUrl);
+          let rejected = false;
+          try { dataFileUrl(base, "..", "state.json"); } catch { rejected = true; }
+          if (!rejected) throw new Error("path traversal was accepted");
+          const points = normalizePoints({ points: [{ t: 1, v: 200 }, 201] });
+          if (points.join(",") !== "200,201") throw new Error(String(points));
+          EOF
+          test ! -e web/d
+          test ! -e d
+          if grep -RInE --exclude-dir=.git '^(TYPESAFE_API_KEY|TG_TOKEN|VAPID_PRIVATE_KEY|APP_TOKEN|DATA_PATH)=' .; then
+            echo "refusing secret assignment" >&2
+            exit 1
+          fi
+          grep -q "Waiting for the first trade" web/index.html
+          grep -q "desk_data_path" web/app.js
+          grep -q "apple-touch-icon" web/index.html
+
+  deploy:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: web
+          include-hidden-files: true
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
