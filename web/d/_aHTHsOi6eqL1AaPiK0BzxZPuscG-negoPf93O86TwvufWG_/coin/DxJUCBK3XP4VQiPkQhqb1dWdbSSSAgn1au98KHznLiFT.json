@@ -1,1 +1,1 @@
-{"coin":{"mint":"DxJUCBK3XP4VQiPkQhqb1dWdbSSSAgn1au98KHznLiFT","name":null,"symbol":null,"pool":null,"migrated_at":1793651008.6069062,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"DxJUCBK3XP4VQiPkQhqb1dWdbSSSAgn1au98KHznLiFT","name":null,"symbol":null,"pool":null,"migrated_at":1793651008.6069062,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
