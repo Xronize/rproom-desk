@@ -1,1 +1,1 @@
-{"coin":{"mint":"HiMSSzzwkZkrXJ4PGVJRdtfLaANeAztjjcgk5Dxe7Lwx","name":null,"symbol":null,"pool":null,"migrated_at":1793595896.0803313,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"HiMSSzzwkZkrXJ4PGVJRdtfLaANeAztjjcgk5Dxe7Lwx","name":null,"symbol":null,"pool":null,"migrated_at":1793595896.0803313,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
