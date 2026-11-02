@@ -1,1 +1,1 @@
-{"coin":{"mint":"AzJzs8i1ZboniyCxbaMpCg77BSdrtJmn6qr7uYTmpump","name":null,"symbol":null,"pool":null,"migrated_at":1793640449.0118072,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"AzJzs8i1ZboniyCxbaMpCg77BSdrtJmn6qr7uYTmpump","name":null,"symbol":null,"pool":null,"migrated_at":1793640449.0118072,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
