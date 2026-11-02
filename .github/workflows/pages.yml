@@ -93,6 +93,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
+      # Redeploy after the repository Pages source was set to GitHub Actions.
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
