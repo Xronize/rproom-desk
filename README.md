@@ -23,7 +23,7 @@ Every 15 seconds, from the Pages site root (not the bare host):
 
 Example shape: `https://xronize.github.io/rproom-desk/d/{DATA_PATH}/state.json`
 
-Nothing is served at bare `/d/`. Do not add a data directory, a placeholder, or a directory index to this repo. The runtime publisher creates `/d/{DATA_PATH}/` on the Pages deployment when it publishes JSON. That secret path never belongs in git.
+Nothing is served at bare `/d/`. The published JSON lives at `web/d/<secret>/` and ships with the Pages artifact. Do not write that directory name in the README, pull requests, or commit messages. Do not add `web/d/index.html`.
 
 If the fragment is missing, the shell asks for `#d=`. If the JSON cannot be loaded, the shell stays up and shows an offline row. Defaults before the first successful poll are a PAPER balance of `$200.00`, `+0.00%` today, `1.00×`, an empty chart (“Waiting for the first trade”), no agents, and no activity.
 

@@ -1,4 +1,4 @@
-# Secrets — never commit runtime credentials or DATA_PATH
+# Secrets — never commit tokens, .env files, or private keys
 secrets/
 .env
 .env.*
@@ -17,11 +17,10 @@ settings.local.*
 __pycache__/
 *.py[cod]
 
-# Runtime data and logs. The publisher writes /d/{DATA_PATH}/ on Pages only.
+# Runtime data and logs. Desk JSON is published under web/d/<secret>/.
 *.db
 logs/
-d/
-web/d/
+/d/
 
 # OS
 .DS_Store
