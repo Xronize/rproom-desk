@@ -1,1 +1,1 @@
-{"coin":{"mint":"SPYBo66VJPFjh1pXMb9Le53kDYWTK1zzYVDeVRWtsbi","name":null,"symbol":null,"pool":null,"migrated_at":1793648319.1497123,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"SPYBo66VJPFjh1pXMb9Le53kDYWTK1zzYVDeVRWtsbi","name":null,"symbol":null,"pool":null,"migrated_at":1793648319.1497123,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
