@@ -1,1 +1,1 @@
-{"coin":{"mint":"Et1w9yxAKuh4CdbVW71Mi654FftDMwD5bKVkvqU5pump","name":null,"symbol":null,"pool":null,"migrated_at":1793658410.7143958,"status":"waiting","reason":null,"holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
+{"coin":{"mint":"Et1w9yxAKuh4CdbVW71Mi654FftDMwD5bKVkvqU5pump","name":null,"symbol":null,"pool":null,"migrated_at":1793658410.7143958,"status":"killed","reason":"never qualified","holders":null},"prices":[],"audit":null,"analysis":null,"positions":[]}
